@@ -1,0 +1,7 @@
+.home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 500px;
+    font-size: 40px;
+}

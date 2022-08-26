@@ -1,0 +1,39 @@
+table {
+  width: 100%;
+}
+
+.software {
+  display: flex;
+  margin: 5px;
+}
+
+.software p {
+  margin-bottom: 0px;
+  margin-top: 5px;
+}
+
+.title {
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-bottom: 0px;
+  color: rgb(31, 31, 31);
+  font-weight: 600;
+}
+
+.buttons {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 40px;
+  padding-top: 15px;
+}
+
+.buttons button {
+  margin: 10px;
+}
+
+.example-margin {
+  margin-right: 15px;
+}

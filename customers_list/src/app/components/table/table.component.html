@@ -1,0 +1,84 @@
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="customers">
+    <ng-container matColumnDef="contactName">
+      <th mat-header-cell *matHeaderCellDef>contactName</th>
+      <td mat-cell *matCellDef="let element">{{ element.contactName }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="contactTelephone">
+      <th mat-header-cell *matHeaderCellDef>contactTelephone</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.contactTelephone }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="creationDate">
+      <th mat-header-cell *matHeaderCellDef>creationDate</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.creationDate | date }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>email</th>
+      <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="softwares">
+      <th mat-header-cell *matHeaderCellDef>softwares</th>
+      <td mat-cell *matCellDef="let element">
+        <div class="software" *ngFor="let software of element.softwares">
+          <p><span class="title">name :</span> {{ software.name }};</p>
+          <p><span class="title"> platform :</span> {{ software.platform }};</p>
+          <p>
+            <span class="title">date :</span>
+            {{ software.subscriptionStarted | date }}.
+          </p>
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <mat-checkbox
+          (click)="getCustomerIds(element.id)"
+          class="example-margin"
+        ></mat-checkbox>
+        <button mat-raised-button (click)="updateCustomerHandler(element)">
+          Edit
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
+
+<mat-paginator
+  (click)="getPageIndex()"
+  [length]="listCount"
+  [pageSize]="pageSize"
+  (page)="pageEvent = $event"
+>
+</mat-paginator>
+
+
+<div class="buttons">
+  <button
+    (click)="deleteUsers()"
+    mat-mini-fab
+    color="primary"
+    aria-label="Example icon button with a menu icon"
+  >
+    <mat-icon>delete</mat-icon>
+  </button>
+
+  <button
+    mat-mini-fab
+    color="accent"
+    aria-label="Example icon button with a plus one icon"
+  >
+    <mat-icon (click)="createCustomerHandler()">plus_one</mat-icon>
+  </button>
+</div>

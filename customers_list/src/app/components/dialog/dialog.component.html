@@ -1,0 +1,27 @@
+<div class="dialog">
+  <h1 mat-dialog-title></h1>
+
+  <div mat-dialog-content class="inputs">
+    <p>Contact name</p>
+    <mat-form-field appearance="fill">
+      <mat-label>Contact name</mat-label>
+      <input matInput [(ngModel)]="customer.contactName" />
+    </mat-form-field>
+    <p>Contact telephone</p>
+    <mat-form-field appearance="fill">
+      <mat-label>Contact telephone</mat-label>
+      <input matInput [(ngModel)]="customer.contactTelephone" />
+    </mat-form-field>
+    <p>Email</p>
+    <mat-form-field appearance="fill">
+      <mat-label>email</mat-label>
+      <input matInput [(ngModel)]="customer.email" />
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button [mat-dialog-close]="customer" cdkFocusInitial>
+      {{ this.data.status }}
+    </button>
+  </div>
+</div>
