@@ -1,0 +1,42 @@
+<div class="selects">
+  <h3 class="title">Customers table</h3>
+  <div class="select">
+    <mat-form-field class="select" appearance="fill">
+      <mat-label>Sort Customers</mat-label>
+      <mat-select [(value)]="selected">
+        <mat-option value="">none</mat-option>
+        <mat-option value="email">email</mat-option>
+        <mat-option value="contactName">contactName</mat-option>
+        <mat-option value="creationDate">creationDate</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button
+      mat-button
+      color="primary"
+      (click)="setSort(selected)"
+      color="primary"
+    >
+      Sort
+    </button>
+
+    <mat-form-field style="padding-bottom: -1.25em" appearance="fill">
+      <mat-label>Choose a date filter</mat-label>
+      <input matInput [matDatepicker]="picker" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <button
+      mat-button
+      color="primary"
+      (click)="setFilter(picker)"
+      color="primary"
+    >
+      Filter
+    </button>
+
+    <button class="accent" mat-raised-button color="accent" (click)="removeSetting()">
+      Remove setting
+    </button>
+  </div>
+</div>
